@@ -1,6 +1,5 @@
 FROM ubuntu:16.04
 
-RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 RUN apt-get update && apt-get install -y \
     build-essential \
     autotools-dev \
@@ -13,8 +12,13 @@ RUN apt-get update && apt-get install -y \
     cmake \
     libmicrohttpd-dev \
     libssl-dev \
-    libhwloc-dev
-RUN apt-get install -y g++-7
+    libhwloc-dev \
+    software-properties-common \
+    python-software-properties
+
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test
+RUN apt-get update && apt-get install -y \
+    g++-7
 RUN update-alternatives \
     --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 \
     --slave /usr/bin/gcc-ar gcc-ar /usr/bin/gcc-ar-7 \
