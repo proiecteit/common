@@ -10,9 +10,10 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
     cmake \
+    libhwloc-dev \
     libmicrohttpd-dev \
     libssl-dev \
-    libhwloc-dev \
+    libuv1-dev \
     software-properties-common \
     python-software-properties
 
